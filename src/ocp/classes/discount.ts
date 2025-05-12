@@ -1,26 +1,17 @@
 export abstract class Discount {
-    constructor(protected readonly discount: number) {}
-
-    calculateDiscount(amount: number): number {
-        return amount - amount * this.discount;
+    protected  discount: number = 0;
+    calculate(price: number): number {
+        return price - (price * this.discount);
     }
 }
 
 export class FiftyPercentDiscount extends Discount {
-    constructor() {
-        super(0.5);
-        console.log('Desconto de 50% aplicado');
-    }
+   protected readonly discount = 0.5;
 }
 
 export class TenPercentDiscount extends Discount {
-    constructor() {
-        super(0.1);
-    }
+    protected readonly discount = 0.1;
 }
-
 export class NoDiscount extends Discount {
-    constructor() {
-        super(0); // Sem desconto
-    }
+    protected readonly discount = 0;
 }
